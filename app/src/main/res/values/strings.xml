@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Chartanalysis</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="optionStarategy">When most people think of investment, they think of buying stocks on the stock market, and many are probably completely unaware of terms like options trading. Buying stocks and holding on to them with a view to making long term gains is after all, one of the more common investment strategies. It\'s also a perfectly sensible to way invest, providing you have some idea about which stocks you should be buying or use a broker that can offer you advice and guidance on such matters.</string>
+    <string name="texhnicalAnalysis">Technical analysis is a tool, or method, used to predict the probable future price movement of a security – such as a stock or currency pair – based on market data.The theory behind the validity of technical analysis is the notion that the collective actions – buying and selling – of all the participants in the market accurately reflect all relevant information pertaining to a traded security, and therefore, continually assign a fair market value to the security.</string>
+    <string name="combo">We offer combo pack of technical analysis and options analysis for overall understanding of the market. You can pick the courses as per your working style in the market. The combo pack are cost effective and worth of your purchase.</string>
+</resources>
