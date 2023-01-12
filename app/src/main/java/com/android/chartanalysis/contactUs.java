@@ -1,12 +1,6 @@
 package com.android.chartanalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import static com.android.chartanalysis.url.GotoYt;
-import static com.android.chartanalysis.url.contactFloting;
-import static com.android.chartanalysis.url.callFloting;
-import static com.android.chartanalysis.url.emailFloting;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
@@ -55,19 +48,19 @@ public class contactUs extends AppCompatActivity {
         submit.setOnClickListener((v)->composeEamil());
 
         //Contact_Floating_Button
-        contact.setOnClickListener((v)->contactFloting(call,email,telegram,youtube));
+        contact.setOnClickListener((v)->url.contactFloting(call,email,telegram,youtube));
 
         //Contact_yt
-        youtube.setOnClickListener((v)->GotoYt(contactUs.this,url1));
+        youtube.setOnClickListener((v)->url.GotoYt(contactUs.this,url1));
 
         //Contact_Telegram
-        telegram.setOnClickListener((v)->GotoYt(contactUs.this,url4));
+        telegram.setOnClickListener((v)->url.GotoYt(contactUs.this,url4));
 
         //Contact_Call
-        call.setOnClickListener((v)->callFloting(contactUs.this));
+        call.setOnClickListener((v)->url.callFloting(contactUs.this));
 
         //Contact_Email
-        email.setOnClickListener((v)->emailFloting(contactUs.this));
+        email.setOnClickListener((v)->url.emailFloting(contactUs.this));
     }
 
 

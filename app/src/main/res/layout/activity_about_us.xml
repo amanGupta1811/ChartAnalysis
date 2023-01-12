@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F6BE00"
+    tools:context=".aboutUs">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header1"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="8dp"
+        android:background="#F6BE00"
+        android:layout_height="75dp">
+
+        <TextView
+            android:id="@+id/icon"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:text="About Us"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="70dp"/>
+
+        <ImageButton
+            android:id="@+id/back_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#F6BE00"
+            android:layout_margin="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="70dp"
+        app:layout_constraintTop_toBottomOf="@id/header1">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toBottomOf="@id/header1"
+            app:layout_constraintBottom_toTopOf="@id/tool"
+            android:layout_marginBottom="30dp">
+
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_centerInParent="true" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/tool"
+                android:layout_width="match_parent"
+                android:layout_height="650dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/orders"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/videoView"/>
+
+
+
+            <TextView
+                android:id="@+id/info"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="@id/tool"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                android:layout_margin="20dp"
+                android:text="Mr.Sharma started his journey of learning technical analysis and started implementing it in complex trading scenario and made huge success. He also started giving classes to students who want to improve their trades or wanted to just understand concepts of technical analysis."
+                android:textColor="@color/black"
+                android:textSize="17dp"
+                />
+
+            <TextView
+                android:id="@+id/keyPoints"
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/info"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:text="◍ 12 years of working experience with broking and advisory firms"
+                android:textColor="@color/purple_700"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                />
+
+
+            <TextView
+                android:id="@+id/keyPOintSec"
+                android:layout_width="400dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="◍ 8 years of teaching experience"
+                android:textColor="@color/purple_700"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="10dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyPoints" />
+
+            <TextView
+                android:layout_width="330dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="◍ He is the most charismatic speakers you will ever see"
+                android:textColor="@color/purple_700"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/keyPOintSec" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_contact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:backgroundTint="#F6BE00"
+        android:src="@drawable/ic_baseline_info_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/call"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:autofillHints="phone"
+        android:src="@drawable/ic_baseline_call_24"
+        app:layout_constraintBottom_toTopOf="@id/btn_contact"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/emailBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_baseline_email_24"
+        app:layout_constraintBottom_toTopOf="@id/call"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/tele"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:src="@drawable/tele"
+        app:layout_constraintBottom_toTopOf="@id/emailBtn"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/youtubeBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:visibility="gone"
+        android:src="@drawable/ic_baseline_play_arrow_24"
+        app:layout_constraintBottom_toTopOf="@id/tele"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,10 +10,6 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import static com.android.chartanalysis.url.GotoYt;
-import static com.android.chartanalysis.url.callFloting;
-import static com.android.chartanalysis.url.contactFloting;
-import static com.android.chartanalysis.url.emailFloting;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class MainActivity extends AppCompatActivity {
@@ -57,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         menuBTn.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, menu.class)));
 
         //Open_Youtube
-        seeAll.setOnClickListener((v)->GotoYt(MainActivity.this,url1));
-        yt2.setOnClickListener((v)->GotoYt(MainActivity.this,url2));
-        yt1.setOnClickListener((v)->GotoYt(MainActivity.this,url3));
+        seeAll.setOnClickListener((v)->url.GotoYt(MainActivity.this,url1));
+        yt2.setOnClickListener((v)->url.GotoYt(MainActivity.this,url2));
+        yt1.setOnClickListener((v)->url.GotoYt(MainActivity.this,url3));
 
         //Course_Details
         firstCourse.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, onlineteaching.class)));
@@ -67,18 +63,18 @@ public class MainActivity extends AppCompatActivity {
         comboCourse.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, combo.class)));
 
         //Contact_Floating_Button
-        contact.setOnClickListener((v)->contactFloting(call, email, telegram, youtube));
+        contact.setOnClickListener((v)->url.contactFloting(call, email, telegram, youtube));
 
         //Contact_yt
-        youtube.setOnClickListener((v)->GotoYt(MainActivity.this,url1));
+        youtube.setOnClickListener((v)->url.GotoYt(MainActivity.this,url1));
 
         //Contact_Call
-        call.setOnClickListener((v)->callFloting(MainActivity.this));
+        call.setOnClickListener((v)->url.callFloting(MainActivity.this));
 
         //Contact_Email
-        email.setOnClickListener((v)->emailFloting(MainActivity.this));
+        email.setOnClickListener((v)->url.emailFloting(MainActivity.this));
 
         //Contact_Telegram
-        telegram.setOnClickListener((v)->GotoYt(MainActivity.this,url4));
+        telegram.setOnClickListener((v)->url.GotoYt(MainActivity.this,url4));
     }
 }

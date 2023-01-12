@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class menu extends AppCompatActivity {
 
     ImageView btnBack;
-    TextView home,contact;
+    TextView home,contact, about;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,7 @@ public class menu extends AppCompatActivity {
         btnBack = findViewById(R.id.back_btn);
         home = findViewById(R.id.categories);
         contact = findViewById(R.id.wishlist);
+        about = findViewById(R.id.your_orders);
 
         //Back_Button
         btnBack.setOnClickListener((v) -> finish());
@@ -33,6 +34,16 @@ public class menu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(menu.this, contactUs.class);
+                startActivity(i);
+                finish();
+            }
+        });
+
+        //About_Us
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(menu.this, aboutUs.class);
                 startActivity(i);
                 finish();
             }
