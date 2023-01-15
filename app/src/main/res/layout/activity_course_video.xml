@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back"
+    tools:context=".courseVideo">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/header1"
+        android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="8dp"
+        android:background="#F6BE00"
+        android:layout_height="75dp">
+
+        <TextView
+            android:id="@+id/icon"
+            android:layout_width="180dp"
+            android:layout_height="80dp"
+            android:text="Videos"
+            android:textStyle="bold"
+            android:textSize="30dp"
+            android:textColor="@color/white"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="70dp"/>
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="#F6BE00"
+            android:layout_margin="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/header1"
+        android:layout_marginTop="80dp"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

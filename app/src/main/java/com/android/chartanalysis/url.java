@@ -50,4 +50,12 @@ public class url {
          intent.setData(data);
          context.startActivity(intent);
      }
+
+     public static void buyBtn(Context context, String nameCourse, String amtCourse){
+         Intent intent = new Intent(context, buyCourse.class);
+         intent.putExtra("courseName", nameCourse);
+         intent.putExtra("courseAmt", amtCourse);
+
+         context.startActivity(intent);
+     }
 }

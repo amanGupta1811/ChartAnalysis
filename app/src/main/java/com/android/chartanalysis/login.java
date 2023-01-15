@@ -131,8 +131,4 @@ public class login extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(request);
     }
-    }
-
-
-
-
+}
