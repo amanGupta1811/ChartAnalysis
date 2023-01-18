@@ -24,6 +24,8 @@ public class onlineteaching extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onlineteaching);
 
+        String emailStr = getIntent().getStringExtra("email1");
+
         buy = findViewById(R.id.buy);
         amt = findViewById(R.id.amt);
 
@@ -31,6 +33,12 @@ public class onlineteaching extends AppCompatActivity {
         String amtStr = amt.getText().toString();
         String name = "Online technical analysis";
 
-        buy.setOnClickListener((v)->buyBtn(context,name,amtStr));
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buyBtn(context,name,amtStr, emailStr);
+                finish();
+            }
+        });
     }
 }

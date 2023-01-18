@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class combo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combo);
+        String emailStr = getIntent().getStringExtra("email3");
 
         buy = findViewById(R.id.buy);
         amt = findViewById(R.id.courseAmt);
@@ -27,6 +29,11 @@ public class combo extends AppCompatActivity {
         String amtStr = amt.getText().toString();
         String name = "Combo of both";
 
-        buy.setOnClickListener((v)->buyBtn(context,name,amtStr));
-    }
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buyBtn(context,name,amtStr,emailStr);
+                finish();
+            }
+        });    }
 }

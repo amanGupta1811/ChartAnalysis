@@ -51,11 +51,12 @@ public class url {
          context.startActivity(intent);
      }
 
-     public static void buyBtn(Context context, String nameCourse, String amtCourse){
+     public static void buyBtn(Context context, String nameCourse, String amtCourse, String emailStr){
          Intent intent = new Intent(context, buyCourse.class);
          intent.putExtra("courseName", nameCourse);
          intent.putExtra("courseAmt", amtCourse);
-
+         intent.putExtra("emailStr", emailStr);
          context.startActivity(intent);
+
      }
 }

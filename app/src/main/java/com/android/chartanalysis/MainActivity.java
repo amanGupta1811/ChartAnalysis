@@ -10,7 +10,19 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,11 +31,13 @@ public class MainActivity extends AppCompatActivity {
     TextView seeAll;
     CardView firstCourse,secondCourse,comboCourse;
     FloatingActionButton call, email, telegram, youtube, contact;
+    String registerEmail;
     boolean touch = true;
     String url1 = "https://www.youtube.com/@chartanalysis123";
     String url2 = "https://www.youtube.com/watch?v=Ab67mKtfXok";
     String url3 = "https://www.youtube.com/watch?v=x7_deJR3f38";
     String url4 = "https://t.me/chartanalysis_umesh_sharma";
+    String urli = "https://sdcsupermarket.com/menu.php";
 
 
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
@@ -46,11 +60,13 @@ public class MainActivity extends AppCompatActivity {
         youtube = findViewById(R.id.youtubeBtn);
         contact = findViewById(R.id.btn_contact);
 
+        registerEmail = getIntent().getStringExtra("email");
+
 
         logBtn.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, login.class)));
 
         //Menu_Bar
-        menuBTn.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, menu.class)));
+       // menuBTn.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, menu.class)));
 
         //Open_Youtube
         seeAll.setOnClickListener((v)->url.GotoYt(MainActivity.this,url1));
@@ -58,10 +74,30 @@ public class MainActivity extends AppCompatActivity {
         yt1.setOnClickListener((v)->url.GotoYt(MainActivity.this,url3));
 
         //Course_Details
-        firstCourse.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, onlineteaching.class)));
-        secondCourse.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, optionstrategy.class)));
-        comboCourse.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, combo.class)));
-
+        firstCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(MainActivity.this,onlineteaching.class);
+                i.putExtra("email1",registerEmail);
+                startActivity(i);
+            }
+        });
+        secondCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(MainActivity.this,optionstrategy.class);
+                i.putExtra("email2",registerEmail);
+                startActivity(i);
+            }
+        });
+        comboCourse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(MainActivity.this,combo.class);
+                i.putExtra("email3",registerEmail);
+                startActivity(i);
+            }
+        });
         //Contact_Floating_Button
         contact.setOnClickListener((v)->url.contactFloting(call, email, telegram, youtube));
 
@@ -76,5 +112,22 @@ public class MainActivity extends AppCompatActivity {
 
         //Contact_Telegram
         telegram.setOnClickListener((v)->url.GotoYt(MainActivity.this,url4));
+
+        menuBTn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent i = new Intent(MainActivity.this,menu.class);
+                i.putExtra("emai", registerEmail);
+                startActivity(i);
+            }
+        });
+
+
+
+
     }
-}
+
+
+
+    }

@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -23,12 +24,19 @@ public class optionstrategy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_optionstrategy);
 
+        String emailStr = getIntent().getStringExtra("email2");
+
         buy = findViewById(R.id.buy);
         amt = findViewById(R.id.courseAmt);
 
         String amtStr = amt.getText().toString();
         String name = "Option Strategy";
 
-        buy.setOnClickListener((v)->buyBtn(context,name,amtStr));
-    }
+        buy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                buyBtn(context,name,amtStr, emailStr);
+                finish();
+            }
+        });    }
 }

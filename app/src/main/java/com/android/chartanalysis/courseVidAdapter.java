@@ -1,11 +1,13 @@
 package com.android.chartanalysis;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -15,13 +17,14 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+
 import java.util.ArrayList;
 
 public class courseVidAdapter extends RecyclerView.Adapter<courseVideoViewHolder> {
 
     ArrayList<videoData> data;
     private Context context;
-
 
     public courseVidAdapter(ArrayList<videoData> data, Context context) {
         this.data = data;
@@ -50,23 +53,35 @@ public class courseVidAdapter extends RecyclerView.Adapter<courseVideoViewHolder
 //            holder.video.setVideoURI(video);
 //            holder.video.start();
 
-            holder.video.setVideoURI(Uri.parse(videoData.getUrl()));
-            holder.video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
-                @Override
-                public void onPrepared(MediaPlayer mediaPlayer) {
+//            holder.video.setVideoURI(Uri.parse(videoData.getUrl()));
+            Glide.with(holder.itemView.getContext()).load(videoData.getThumbnail()).into(holder.thumbnail);
 
-                    holder.vid.setOnClickListener(new View.OnClickListener() {
+//            holder.video.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+//                @Override
+//                public void onPrepared(MediaPlayer mediaPlayer) {
+
+                    holder.thumbnail.setOnClickListener(new View.OnClickListener() {
+
                         @Override
                         public void onClick(View view) {
+                            Intent i = new Intent(context, fullVideo.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            i.putExtra("link",videoData.getUrl());
+                            i.putExtra("title2",videoData.getTitle());
+                            context.startActivity(i);
+//
 
-                            mediaPlayer.setLooping(true);
-                            mediaPlayer.start();
+//                            holder.thumbnail.setVisibility(View.GONE);
+//                            holder.video.setVisibility(View.VISIBLE);
+
+//                            mediaPlayer.setLooping(true);
+//                            mediaPlayer.start();
 
                         }
                     });
 
-                }
-            });
+//                }
+//            });
 
 
         }
@@ -98,12 +113,14 @@ class courseVideoViewHolder extends RecyclerView.ViewHolder{
     TextView titel;
     Context context;
     ConstraintLayout vid;
+    ImageView thumbnail;
 
     public courseVideoViewHolder(@NonNull View itemView) {
         super(itemView);
-        video = itemView.findViewById(R.id.videoView1);
+//        video = itemView.findViewById(R.id.videoView1);
         titel = itemView.findViewById(R.id.title1);
         vid = itemView.findViewById(R.id.vid);
+        thumbnail = itemView.findViewById(R.id.thumbnail);
 
     }
 }

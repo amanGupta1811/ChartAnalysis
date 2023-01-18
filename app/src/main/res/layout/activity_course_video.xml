@@ -15,6 +15,8 @@
         android:background="#F6BE00"
         android:layout_height="75dp">
 
+
+
         <TextView
             android:id="@+id/icon"
             android:layout_width="180dp"
@@ -45,8 +47,19 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        tools:listitem="@layout/item_video"
         app:layout_constraintTop_toBottomOf="@id/header1"
         android:layout_marginTop="80dp"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="visible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

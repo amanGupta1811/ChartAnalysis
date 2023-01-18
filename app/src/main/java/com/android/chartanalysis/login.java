@@ -37,6 +37,7 @@ public class login extends AppCompatActivity {
     Button skipBtn,login;
     EditText emailTxt, passTxt;
     ProgressBar progressBar;
+    String emailStr;
     String url = "https://sdcsupermarket.com/login.php";
 
     @SuppressLint("MissingInflatedId")
@@ -66,7 +67,7 @@ public class login extends AppCompatActivity {
     }
 
     void loginToAcc(){
-        String emailStr = emailTxt.getText().toString();
+        emailStr = emailTxt.getText().toString();
         String passStr = passTxt.getText().toString();
 
         boolean isValidate = validateData(emailStr,passStr);
@@ -101,6 +102,7 @@ public class login extends AppCompatActivity {
 
                 if(response.toString().equals("Login Succesfully")){
                     Intent i = new Intent(login.this, MainActivity.class);
+                    i.putExtra("email", emailStr);
                     startActivity(i);
                     finish();
                 }

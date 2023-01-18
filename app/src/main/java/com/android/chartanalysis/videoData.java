@@ -2,12 +2,13 @@ package com.android.chartanalysis;
 
 public class videoData {
 
-    String id,title,url;
+    String id,title,url,thumbnail;
 
-    public videoData(String id, String title, String url) {
+    public videoData(String id, String title, String url, String thumbnail) {
         this.id = id;
         this.title = title;
         this.url = url;
+        this.thumbnail = thumbnail;
     }
 
     public String getId() {
@@ -21,4 +22,6 @@ public class videoData {
     public String getUrl() {
         return url;
     }
+
+    public String getThumbnail(){return thumbnail;}
 }
