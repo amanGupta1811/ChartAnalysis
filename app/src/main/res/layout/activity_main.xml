@@ -15,14 +15,7 @@
        android:layout_height="75dp">
 
 
-       <ImageView
-           android:id="@+id/loginAcc"
-           android:layout_width="50dp"
-           android:layout_height="30dp"
-           android:src="@drawable/ic_baseline_more_vert_24"
-           app:layout_constraintTop_toTopOf="parent"
-           app:layout_constraintRight_toRightOf="parent"
-           android:layout_margin="20dp"/>
+
 
        <TextView
            android:id="@+id/icon"
@@ -80,9 +73,9 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/yt"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_height="140dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:background="@drawable/edittextbackground"
                 app:layout_constraintBottom_toTopOf="@id/companyLogo"
                 app:layout_constraintHorizontal_bias="0.0"
@@ -95,7 +88,10 @@
                     android:id="@+id/yt1"
                     android:layout_width="170dp"
                     android:layout_height="0dp"
-                    android:layout_margin="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:src="@drawable/yt1"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintLeft_toLeftOf="parent"
@@ -107,7 +103,10 @@
                     android:id="@+id/yt2"
                     android:layout_width="170dp"
                     android:layout_height="0dp"
-                    android:layout_margin="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
                     android:src="@drawable/yt2"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toRightOf="parent"
@@ -182,7 +181,7 @@
 
                         <ImageView
                             android:id="@+id/courseImg"
-                            android:layout_width="300dp"
+                            android:layout_width="wrap_content"
                             android:layout_height="150dp"
                             android:layout_marginLeft="20dp"
                             android:layout_marginRight="20dp"
@@ -356,4 +355,249 @@
         app:layout_constraintBottom_toTopOf="@id/tele"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/men"
+        android:layout_width="250dp"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:visibility="gone"
+        android:background="@drawable/back">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/headA"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="#F6BE00"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+<!--            <androidx.cardview.widget.CardView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:elevation="12dp"-->
+<!--                android:id="@+id/card_view"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:layout_marginLeft="50dp"-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                app:cardCornerRadius="60dp"-->
+<!--                android:layout_centerHorizontal="true">-->
+
+
+                <ImageView
+                    android:id="@+id/user_Img"
+                    android:layout_width="160dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/nameA"
+                    android:src="@drawable/logo"
+                    />
+
+<!--            </androidx.cardview.widget.CardView>-->
+
+            <ImageButton
+                android:id="@+id/back_btnA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#F6BE00"
+                android:src="@drawable/ic_baseline_arrow_back_ios_24"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_margin="15dp"/>
+
+            <TextView
+                android:id="@+id/nameA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:text="registermailid@gmail.com"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_Img" />
+
+            <View
+                android:id="@+id/line"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#000000"
+                app:layout_constraintTop_toBottomOf="@id/user_Img"
+                android:layout_marginTop="40dp"
+                tools:ignore="MissingConstraints" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="200dp"
+            app:layout_constraintTop_toBottomOf="@id/headA">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <TextView
+                android:id="@+id/categoriesA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="60dp"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/techA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Courses"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categoriesA"
+                android:layout_marginLeft="70dp"
+                android:layout_marginTop="40dp"
+                android:visibility="visible"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/onlineA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Technical analysis"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/techA"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="40dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/optionA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Option Stretegy"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="18dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/onlineA"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="40dp"
+                android:visibility="gone"
+                android:clickable="true"
+                android:focusable="true"
+                tools:ignore="NotSibling" />
+
+            <TextView
+                android:id="@+id/your_ordersA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="About Us"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/optionA"
+                android:layout_marginLeft="70dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="40dp"/>
+
+            <TextView
+                android:id="@+id/wishlistA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Contact Us"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/your_ordersA"
+                android:layout_marginLeft="70dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="40dp"/>
+
+            <TextView
+                android:id="@+id/youtubeA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Invite Freind"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/wishlistA"
+                android:layout_marginLeft="70dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="40dp"/>
+
+
+            <TextView
+                android:id="@+id/log_outA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log Out"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:textSize="20dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/youtubeA"
+                android:layout_marginLeft="70dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:layout_marginTop="40dp"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <ProgressBar
+        android:id="@+id/progressB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

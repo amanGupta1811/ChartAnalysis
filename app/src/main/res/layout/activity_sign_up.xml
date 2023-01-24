@@ -27,8 +27,10 @@
                 android:src="@drawable/icon"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
                 android:layout_marginTop="55dp"
-                android:layout_marginLeft="80dp"/>
+                android:layout_marginLeft="80dp"
+                android:layout_marginRight="80dp"/>
 
 
             <EditText
@@ -153,7 +155,7 @@
                 android:layout_height="64dp"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="92dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="140dp"
                 android:backgroundTint="#F6BE00"
                 android:text="SignUp"
                 android:textColor="#ff781f"

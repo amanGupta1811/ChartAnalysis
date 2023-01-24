@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,7 @@ public class buyCourse extends AppCompatActivity {
     ImageButton backBtn;
     Button payBtn;
     String url = "https://sdcsupermarket.com/purchage_details.php";
-
+    ProgressBar progressBar;
 //    menu menu;
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -42,12 +43,14 @@ public class buyCourse extends AppCompatActivity {
         courseAmt = findViewById(R.id.courseAmt);
         backBtn = findViewById(R.id.backBtn);
         payBtn = findViewById(R.id.payBtn);
+        progressBar = findViewById(R.id.progress);
 
         Intent intent = getIntent();
 
         String course = intent.getStringExtra("courseName");
         String amt = intent.getStringExtra("courseAmt");
         String email = intent.getStringExtra("emailStr");
+        String emai = intent.getStringExtra("email10");
         courseName.setText(course);
         courseAmt.setText(amt);
 
@@ -56,22 +59,26 @@ public class buyCourse extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                buyDeatailsToDB(course,amt,email);
+                buyDeatailsToDB(course,amt,email,emai);
 
 
             }
         });
     }
 
-    void buyDeatailsToDB(final String course,final String amt,final String email){
+    void buyDeatailsToDB(final String course,final String amt,final String email,final String emai){
 
+        progressBar.setVisibility(View.VISIBLE);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+                progressBar.setVisibility(View.GONE);
                 Toast.makeText(getApplicationContext(), response, Toast.LENGTH_LONG).show();
                 if (response.toString().equals("Purchase Succesfull")) {
                     finish();
+
                 } else {
+                    finish();
 
                 }
 
@@ -80,6 +87,8 @@ public class buyCourse extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.GONE);
+                finish();
             }
         }) {
             @Nullable
@@ -89,6 +98,8 @@ public class buyCourse extends AppCompatActivity {
                 map.put("course", course);
                 map.put("amount", amt);
                 map.put("email", email);
+
+
                 return map;
             }
         };

@@ -68,7 +68,10 @@ public class signUp extends AppCompatActivity {
         if(!isValidate){
             return;
         }
+
         registerUserToDatabase(nameStr,emailStr,mobileStr,passStr);
+
+
     }
 
     boolean validateData(String nameStr,String emailStr, String mobileStr, String passStr){
@@ -83,6 +86,7 @@ public class signUp extends AppCompatActivity {
         }
         else if(mobileStr.length()!=10){
             mobileTxt.setError("Phone no. is invalid");
+            return false;
         }
 
         else if (!isValidPassword(passStr)){

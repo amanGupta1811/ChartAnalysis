@@ -1,13 +1,18 @@
 package com.android.chartanalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.app.DownloadManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -34,6 +39,11 @@ public class courseVideo extends AppCompatActivity {
     ArrayList<videoData> arrayList = new ArrayList<>();
     private courseVidAdapter courseVidAdapter;
     ProgressBar progressBar;
+    ImageButton back;
+    ImageView invoiceT;
+    String id, course, email, amount;
+    Button invoice;
+    boolean touch = true;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -42,12 +52,62 @@ public class courseVideo extends AppCompatActivity {
         setContentView(R.layout.activity_course_video);
         recyclerView = findViewById(R.id.recyclerView);
         progressBar = findViewById(R.id.progressBar);
+        back = findViewById(R.id.backBtnV);
+        invoiceT = findViewById(R.id.invoiceT);
+        invoice = findViewById(R.id.invoice);
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        id = getIntent().getStringExtra("id");
+        course = getIntent().getStringExtra("check");
+        amount = getIntent().getStringExtra("amt");
+        email = getIntent().getStringExtra("email0");
+
+        invoiceT.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               if(touch){
+                   invoice.setVisibility(View.VISIBLE);
+                   touch = false;
+               }
+               else{
+                   invoice.setVisibility(View.GONE);
+                   touch = true;
+               }
+            }
+        });
+
+        invoice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i= new Intent(courseVideo.this,invoice.class);
+                i.putExtra("id1",id);
+                i.putExtra("course1",course);
+                i.putExtra("amt1",amount);
+                i.putExtra("email1",email);
+                startActivity(i);
+            }
+        });
+
+
+        back.setOnClickListener((v)->finish());
+
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2,LinearLayoutManager.VERTICAL, false));
         courseVidAdapter = new courseVidAdapter(arrayList, getApplicationContext());
         fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
+        fetchData();
         recyclerView.setAdapter(courseVidAdapter);
-
 
     }
 
