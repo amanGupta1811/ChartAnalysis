@@ -41,7 +41,7 @@ public class courseVideo extends AppCompatActivity {
     ProgressBar progressBar;
     ImageButton back;
     ImageView invoiceT;
-    String id, course, email, amount;
+    String id, course, email, amount, date;
     Button invoice;
     boolean touch = true;
 
@@ -60,6 +60,7 @@ public class courseVideo extends AppCompatActivity {
         course = getIntent().getStringExtra("check");
         amount = getIntent().getStringExtra("amt");
         email = getIntent().getStringExtra("email0");
+        date = getIntent().getStringExtra("date");
 
         invoiceT.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +84,7 @@ public class courseVideo extends AppCompatActivity {
                 i.putExtra("course1",course);
                 i.putExtra("amt1",amount);
                 i.putExtra("email1",email);
+                i.putExtra("date",date);
                 startActivity(i);
             }
         });

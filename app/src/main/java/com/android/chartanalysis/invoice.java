@@ -1,12 +1,33 @@
 package com.android.chartanalysis;
 
-import androidx.appcompat.app.AppCompatActivity;
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
+import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.Typeface;
+import android.graphics.pdf.PdfDocument;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.w3c.dom.Text;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
@@ -14,9 +35,25 @@ import java.util.Locale;
 public class invoice extends AppCompatActivity {
 
 
-    TextView invoice,orderId, courseName, cusName, price, sgstP, cgstP, priceT, invoDate;
-    String courseF, amtF, idF, emailF;
+    TextView invoice,orderId, courseName, cusName, price, sgstP, cgstP, priceT, invoDate, orderD;
+    String courseF, amtF, idF, emailF,dateF;
     int amtI;
+    Button download;
+
+
+
+    // declaring width and height
+    // for our PDF file.
+    int pageHeight = 1120;
+    int pagewidth = 792;
+
+    // creating a bitmap variable
+    // for storing our images
+    Bitmap bmp;
+    Bitmap scaledbmp;
+
+    // constant code for runtime permissions
+    private static final int PERMISSION_REQUEST_CODE = 200;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,10 +67,20 @@ public class invoice extends AppCompatActivity {
         cgstP = findViewById(R.id.cgst_price);
         priceT = findViewById(R.id.pri_total);
         invoDate = findViewById(R.id.invo_dateT);
+        download = findViewById(R.id.down);
+        orderD = findViewById(R.id.orderT);
 
         idF = getIntent().getStringExtra("id1");
         courseF = getIntent().getStringExtra("course1");
         amtF = getIntent().getStringExtra("amt1");
+        dateF = getIntent().getStringExtra("date");
+
+        download.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         if(amtF.equals("\u20b9 7,999")){
             amtI = 7999;
@@ -72,6 +119,10 @@ public class invoice extends AppCompatActivity {
         cgstP.setText(cgstS);
         priceT.setText(priceST);
         invoDate.setText(date);
+        orderD.setText(dateF);
 
     }
+
+
+
 }

@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     boolean touch = true;
     ConstraintLayout menu;
     ImageButton back;
-    String courseB, emailB, idB, rateB;
+    String courseB, emailB, idB, rateB,dateB;
     ProgressBar progressBar;
     String url5 = "https://sdcsupermarket.com/check_purchage_user.php";
     String url1 = "https://www.youtube.com/@chartanalysis123";
@@ -244,6 +244,7 @@ public class MainActivity extends AppCompatActivity {
                                 emailB = object.getString("email");
                                 idB = object.getString("id");
                                 rateB = object.getString("amount");
+                                dateB = object.getString("orderDate");
 
 
                                 if (courseB.equals("Online technical analysis") && emailB.equals(registerEmail)) {
@@ -252,6 +253,7 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra("email0", registerEmail);
                                     intent.putExtra("id", idB);
                                     intent.putExtra("amt",rateB);
+                                    intent.putExtra("date",dateB);
                                     startActivity(intent);
                                     menu.setVisibility(View.GONE);
                                     a = 1;
@@ -337,6 +339,7 @@ public class MainActivity extends AppCompatActivity {
                                 emailB = object.getString("email");
                                 idB = object.getString("id");
                                 rateB = object.getString("amount");
+                                dateB = object.getString("orderDate");
 
 //                                    cours.add(course);
 //                                    ema.add(email);
@@ -347,6 +350,7 @@ public class MainActivity extends AppCompatActivity {
                                     intent.putExtra("email0", registerEmail);
                                     intent.putExtra("id", idB);
                                     intent.putExtra("amt",rateB);
+                                    intent.putExtra("date",dateB);
                                     startActivity(intent);
                                     menu.setVisibility(View.GONE);
 

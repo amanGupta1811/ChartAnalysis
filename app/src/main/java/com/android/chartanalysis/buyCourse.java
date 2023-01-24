@@ -22,7 +22,10 @@ import com.android.volley.toolbox.Volley;
 
 import org.w3c.dom.Text;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class buyCourse extends AppCompatActivity {
@@ -54,19 +57,21 @@ public class buyCourse extends AppCompatActivity {
         courseName.setText(course);
         courseAmt.setText(amt);
 
+        String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
+
         backBtn.setOnClickListener((v) -> finish());
         payBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                buyDeatailsToDB(course,amt,email,emai);
+                buyDeatailsToDB(course,amt,email,date);
 
 
             }
         });
     }
 
-    void buyDeatailsToDB(final String course,final String amt,final String email,final String emai){
+    void buyDeatailsToDB(final String course,final String amt,final String email,final String date){
 
         progressBar.setVisibility(View.VISIBLE);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -98,6 +103,7 @@ public class buyCourse extends AppCompatActivity {
                 map.put("course", course);
                 map.put("amount", amt);
                 map.put("email", email);
+                map.put("orderDate",date);
 
 
                 return map;
