@@ -35,10 +35,10 @@ import java.util.Locale;
 public class invoice extends AppCompatActivity {
 
 
-    TextView invoice,orderId, courseName, cusName, price, sgstP, cgstP, priceT, invoDate, orderD;
-    String courseF, amtF, idF, emailF,dateF;
+    TextView invoice,orderId, courseName, cusName, price, sgstP, cgstP, priceT, invoDate, orderD,mobile;
+    String courseF, amtF, idF, emailF,dateF,nameF, mobileF;
     int amtI;
-    Button download;
+    Button download, back;
 
 
 
@@ -55,6 +55,7 @@ public class invoice extends AppCompatActivity {
     // constant code for runtime permissions
     private static final int PERMISSION_REQUEST_CODE = 200;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,24 +70,35 @@ public class invoice extends AppCompatActivity {
         invoDate = findViewById(R.id.invo_dateT);
         download = findViewById(R.id.down);
         orderD = findViewById(R.id.orderT);
+        cusName = findViewById(R.id.cus_name);
+        mobile = findViewById(R.id.mobileNo);
+        back = findViewById(R.id.back);
 
         idF = getIntent().getStringExtra("id1");
         courseF = getIntent().getStringExtra("course1");
         amtF = getIntent().getStringExtra("amt1");
         dateF = getIntent().getStringExtra("date");
+        nameF = getIntent().getStringExtra("name");
+        mobileF = getIntent().getStringExtra("mobile");
 
-        download.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+//        download.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
 
-            }
-        });
+        back.setOnClickListener((v)->finish());
 
         if(amtF.equals("\u20b9 7,999")){
             amtI = 7999;
         }
         else if(amtF.equals("\u20b910,999")){
             amtI = 10999;
+        }
+
+        else{
+            amtI = 16999;
         }
 
         int priceI = (int) Math.round((amtI/1.18));
@@ -120,8 +132,11 @@ public class invoice extends AppCompatActivity {
         priceT.setText(priceST);
         invoDate.setText(date);
         orderD.setText(dateF);
+        cusName.setText(nameF);
+        mobile.setText(mobileF);
 
     }
+
 
 
 

@@ -12,7 +12,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
-
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -25,8 +24,6 @@
                 android:background="@drawable/orders"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"/>
-
-
             <ImageView
                 android:id="@+id/courseImg"
                 android:layout_width="match_parent"
@@ -37,26 +34,6 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/buy"
-                android:layout_width="200dp"
-                android:layout_height="60dp"
-                android:text="Buy"
-                android:textSize="30dp"
-                android:textAlignment="center"
-                android:textAllCaps="false"
-                app:layout_constraintTop_toBottomOf="@id/last"
-                app:layout_constraintRight_toRightOf="parent"
-                android:layout_marginBottom="55dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginLeft="15dp"
-                app:layout_constraintBottom_toBottomOf="@id/tool"
-                app:layout_constraintLeft_toRightOf="@id/courseAmt"
-                android:background="@drawable/button_background"
-                />
-
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/infoC"
@@ -80,14 +57,8 @@
                 android:layout_margin="20dp"
                 android:text="@string/combo"
                 android:textColor="@color/black"
-                android:textSize="17dp"
-                />
+                android:textSize="17dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
 
             <TextView
                 android:id="@+id/keyPoints"
@@ -151,21 +122,47 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/infoC" />
 
-            <TextView
-                android:id="@+id/courseAmt"
-                android:layout_width="wrap_content"
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="150dp"
-                android:layout_marginBottom="55dp"
-                android:text="₹16,999"
-                android:textColor="@color/black"
-                android:textSize="50dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/tool"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
                 app:layout_constraintTop_toBottomOf="@id/last"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tool">
 
+                <TextView
+                    android:id="@+id/courseAmt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="₹ 16,999"
+                    android:textColor="@color/black"
+                    android:layout_marginRight="2dp"
+                    android:layout_marginLeft="100dp"
+                    android:textSize="40dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toLeftOf="@id/buy"/>
+                <Button
+                    android:id="@+id/buy"
+                    android:layout_width="180dp"
+                    android:layout_height="60dp"
+                    android:text="Buy"
+                    android:textSize="30dp"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginRight="100dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toRightOf="@id/courseAmt"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:background="@drawable/button_background"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

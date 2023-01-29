@@ -34,6 +34,7 @@ import java.util.HashMap;
 public class courseVideo extends AppCompatActivity {
 
     String url = "https://sdcsupermarket.com/fetch_video.php";
+    String url1 = "https://sdcsupermarket.com/user_details.php";
     private ArrayList<videoData> data = new ArrayList<>();
     RecyclerView recyclerView;
     ArrayList<videoData> arrayList = new ArrayList<>();
@@ -41,7 +42,7 @@ public class courseVideo extends AppCompatActivity {
     ProgressBar progressBar;
     ImageButton back;
     ImageView invoiceT;
-    String id, course, email, amount, date;
+    String id, course, email, amount, date, nameF, emailF, contactF;
     Button invoice;
     boolean touch = true;
 
@@ -79,13 +80,8 @@ public class courseVideo extends AppCompatActivity {
         invoice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i= new Intent(courseVideo.this,invoice.class);
-                i.putExtra("id1",id);
-                i.putExtra("course1",course);
-                i.putExtra("amt1",amount);
-                i.putExtra("email1",email);
-                i.putExtra("date",date);
-                startActivity(i);
+                fetchDetails();
+
             }
         });
 
@@ -160,6 +156,73 @@ public class courseVideo extends AppCompatActivity {
                 Toast.makeText(courseVideo.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         }) {
+            public HashMap<String, String> getHeaders() throws AuthFailureError {
+                HashMap<String, String> headers = new HashMap<String, String>();
+                headers.put("Content-Type", "application/json; charset=utf-8");
+                headers.put("User-agent", "Mozilla/5.0");
+                return headers;
+            }
+
+            public Priority getPriority() {
+                return Priority.IMMEDIATE;
+
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+    public void fetchDetails(){
+        progressBar.setVisibility(View.VISIBLE);
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url1, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                progressBar.setVisibility(View.GONE);
+
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    String fetch = jsonObject.getString("on_success");
+
+                    JSONArray jsonArray = jsonObject.getJSONArray("response");
+                    if (fetch.matches("1")) {
+
+                        for (int j = 0; j < jsonArray.length(); j++) {
+                            JSONObject object = jsonArray.getJSONObject(j);
+
+                            nameF = object.getString("name");
+                            emailF = object.getString("email");
+                            contactF = object.getString("contact");
+
+                            if (emailF.equals(email)) {
+                                Intent i = new Intent(courseVideo.this, invoice.class);
+                                i.putExtra("id1", id);
+                                i.putExtra("course1", course);
+                                i.putExtra("amt1", amount);
+                                i.putExtra("email1", email);
+                                i.putExtra("date", date);
+                                i.putExtra("name", nameF);
+                                i.putExtra("mobile", contactF);
+                                invoiceT.setVisibility(View.GONE);
+                                startActivity(i);
+                            }
+                        }
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                progressBar.setVisibility(View.GONE);
+                invoiceT.setVisibility(View.GONE);
+                Toast.makeText(courseVideo.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+            }
+        }){
             public HashMap<String, String> getHeaders() throws AuthFailureError {
                 HashMap<String, String> headers = new HashMap<String, String>();
                 headers.put("Content-Type", "application/json; charset=utf-8");

@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     TextView seeAll, r_email, home, courseA, about, contactA, online, option;
     CardView firstCourse,secondCourse,comboCourse;
     FloatingActionButton call, email, telegram, youtube, contact;
-    String registerEmail,course;
+    String course;
     boolean touch = true;
     ConstraintLayout menu;
     ImageButton back;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         online = findViewById(R.id.onlineA);
         progressBar = findViewById(R.id.progressB);
 
-        registerEmail = getIntent().getStringExtra("email");
+       String registerEmail = getIntent().getStringExtra("email");
 
         r_email.setText(registerEmail);
 
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    online();
+                    online(registerEmail);
 
                     }
 
@@ -213,14 +213,14 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    option();
+                    option(registerEmail);
 
 
                 }
             });
         }
 
-        void online(){
+        void online(String emails){
         progressBar.setVisibility(View.VISIBLE);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url5, new Response.Listener<String>() {
                 @Override
@@ -247,15 +247,17 @@ public class MainActivity extends AppCompatActivity {
                                 dateB = object.getString("orderDate");
 
 
-                                if (courseB.equals("Online technical analysis") && emailB.equals(registerEmail)) {
+                                if ((courseB.equals("Online technical analysis")||courseB.equals("Combo of both")) && emailB.equals(emails)) {
                                     Intent intent = new Intent(MainActivity.this, courseVideo.class);
                                     intent.putExtra("check", courseB);
-                                    intent.putExtra("email0", registerEmail);
+                                    intent.putExtra("email0", emails);
                                     intent.putExtra("id", idB);
                                     intent.putExtra("amt",rateB);
                                     intent.putExtra("date",dateB);
                                     startActivity(intent);
                                     menu.setVisibility(View.GONE);
+                                    online.setVisibility(View.GONE);
+                                    option.setVisibility(View.GONE);
                                     a = 1;
                                     //  progressBar.setVisibility(View.GONE);
                                     //break;
@@ -269,8 +271,10 @@ public class MainActivity extends AppCompatActivity {
 //                                i.putExtra("email0", nameStr);
 //                                startActivity(i);
                                 menu.setVisibility(View.GONE);
+                                online.setVisibility(View.GONE);
+                                option.setVisibility(View.GONE);
                                 // progressBar.setVisibility(View.GONE);
-                                Toast.makeText(MainActivity.this, "Buy online technical analysis ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Please buy online technical analysis", Toast.LENGTH_LONG).show();
                             }
 
 
@@ -281,9 +285,11 @@ public class MainActivity extends AppCompatActivity {
 //                            startActivity(i);
                             // progressBar.setVisibility(View.GONE);
                             menu.setVisibility(View.GONE);
+                            online.setVisibility(View.GONE);
+                            option.setVisibility(View.GONE);
 
 
-                            Toast.makeText(MainActivity.this, "Buy online technical analysis ", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Please buy online technical analysis ", Toast.LENGTH_LONG).show();
 
                         }
 
@@ -295,8 +301,15 @@ public class MainActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(MainActivity.this, "Please login to your account or Check your connection", Toast.LENGTH_LONG).show();
+                        menu.setVisibility(View.GONE);
+                        online.setVisibility(View.GONE);
+                        option.setVisibility(View.GONE);
+
+
                 }
             }) {
                 @Nullable
@@ -304,7 +317,7 @@ public class MainActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<String, String>();
 
-                    map.put("email", registerEmail);
+                    map.put("email", emails);
 
                     return map;
                 }
@@ -315,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
             requestQueue.add(stringRequest);
         }
 
-        void option(){
+        void option(String emails){
         progressBar.setVisibility(View.VISIBLE);
             StringRequest stringRequest = new StringRequest(Request.Method.POST, url5, new Response.Listener<String>() {
                 @Override
@@ -344,15 +357,17 @@ public class MainActivity extends AppCompatActivity {
 //                                    cours.add(course);
 //                                    ema.add(email);
 
-                                if (courseB.equals("Option Strategy") && emailB.equals(registerEmail)) {
+                                if ((courseB.equals("Option Strategy")||courseB.equals("Combo of both"))&& emailB.equals(emails)) {
                                     Intent intent = new Intent(MainActivity.this, courseVideo.class);
                                     intent.putExtra("check", courseB);
-                                    intent.putExtra("email0", registerEmail);
+                                    intent.putExtra("email0", emails);
                                     intent.putExtra("id", idB);
                                     intent.putExtra("amt",rateB);
                                     intent.putExtra("date",dateB);
                                     startActivity(intent);
                                     menu.setVisibility(View.GONE);
+                                    online.setVisibility(View.GONE);
+                                    option.setVisibility(View.GONE);
 
                                     //progressBar.setVisibility(View.GONE);
                                     a = 1;
@@ -366,9 +381,11 @@ public class MainActivity extends AppCompatActivity {
 //                                i.putExtra("email0", nameStr);
 //                                startActivity(i);
                                 menu.setVisibility(View.GONE);
+                                online.setVisibility(View.GONE);
+                                option.setVisibility(View.GONE);
 
                                 // progressBar.setVisibility(View.GONE);
-                                Toast.makeText(MainActivity.this, "Buy option strategy ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Please buy option strategy ", Toast.LENGTH_LONG).show();
                             }
 
 
@@ -378,9 +395,11 @@ public class MainActivity extends AppCompatActivity {
 //                            i.putExtra("email0", nameStr);
 //                            startActivity(i);
                             menu.setVisibility(View.GONE);
+                            online.setVisibility(View.GONE);
+                            option.setVisibility(View.GONE);
 
                             // progressBar.setVisibility(View.GONE);
-                            Toast.makeText(MainActivity.this, "Buy option strategy", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Please buy option strategy", Toast.LENGTH_LONG).show();
 
 
                             // Toast.makeText(MainActivity.this, "Error", Toast.LENGTH_SHORT).show();
@@ -395,8 +414,15 @@ public class MainActivity extends AppCompatActivity {
             }, new Response.ErrorListener() {
                 @Override
                 public void onErrorResponse(VolleyError error) {
-                    progressBar.setVisibility(View.GONE);
-                    Toast.makeText(MainActivity.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+
+                        progressBar.setVisibility(View.GONE);
+                        Toast.makeText(MainActivity.this, "Please login to your account or check your connection", Toast.LENGTH_LONG).show();
+                        menu.setVisibility(View.GONE);
+                        online.setVisibility(View.GONE);
+                        option.setVisibility(View.GONE);
+
+
+
                 }
             }) {
                 @Nullable
@@ -404,7 +430,7 @@ public class MainActivity extends AppCompatActivity {
                 protected Map<String, String> getParams() throws AuthFailureError {
                     Map<String, String> map = new HashMap<String, String>();
 
-                    map.put("email", registerEmail);
+                    map.put("email", emails);
 
                     return map;
                 }

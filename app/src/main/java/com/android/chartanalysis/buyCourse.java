@@ -35,6 +35,7 @@ public class buyCourse extends AppCompatActivity {
     Button payBtn;
     String url = "https://sdcsupermarket.com/purchage_details.php";
     ProgressBar progressBar;
+   // String email;
 //    menu menu;
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -91,9 +92,10 @@ public class buyCourse extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show();
-                progressBar.setVisibility(View.GONE);
-                finish();
+             Toast.makeText(buyCourse.this, "Please login to your account or Check your connection",Toast.LENGTH_LONG).show();
+             progressBar.setVisibility(View.GONE);
+             finish();
+
             }
         }) {
             @Nullable

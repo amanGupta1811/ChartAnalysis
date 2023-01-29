@@ -81,12 +81,12 @@ public class login extends AppCompatActivity {
 
     boolean validateData(String emailStr, String passStr){
 
-        if(!Patterns.EMAIL_ADDRESS.matcher(emailStr).matches()){
-            emailTxt.setError("Email is invalid");
+        if(emailStr.trim().length()==0){
+            emailTxt.setError("Please enter Email Id");
             return false;
         }
-        else if (!isValidPassword(passStr)){
-            passTxt.setError("Password is invalid");
+        else if (passStr.trim().length()==0){
+            passTxt.setError("Please enter Password");
             return false;
         }
         return true;
@@ -116,7 +116,8 @@ public class login extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(),error.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(login.this, "Connection Error", Toast.LENGTH_SHORT).show();
+
                 progressBar.setVisibility(View.GONE);
             }
         }){
