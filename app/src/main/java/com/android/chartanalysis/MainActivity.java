@@ -6,9 +6,11 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.app.Notification;
+import android.content.Context;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView logBtn,yt1,yt2;
     ImageView menuBTn;
-    TextView seeAll, r_email, home, courseA, about, contactA, online, option;
+    TextView seeAll, r_email, home, courseA, about, contactA, online, option,logout;
     CardView firstCourse,secondCourse,comboCourse;
     FloatingActionButton call, email, telegram, youtube, contact;
     String course;
@@ -57,6 +59,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+        String username = sharedPreferences.getString("Username", "");
+        String password = sharedPreferences.getString("Password", "");
 
 
         menuBTn = findViewById(R.id.menu_btn);
@@ -81,10 +88,11 @@ public class MainActivity extends AppCompatActivity {
         option = findViewById(R.id.optionA);
         online = findViewById(R.id.onlineA);
         progressBar = findViewById(R.id.progressB);
+        logout = findViewById(R.id.log_outA);
 
-       String registerEmail = getIntent().getStringExtra("email");
+       //String registerEmail = getIntent().getStringExtra("email");
 
-        r_email.setText(registerEmail);
+        r_email.setText(username);
 
        // logBtn.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, invoice.class)));
 
@@ -101,24 +109,39 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(MainActivity.this,onlineteaching.class);
-                i.putExtra("email1",registerEmail);
-                startActivity(i);
+                if(!username.isEmpty()) {
+                    i.putExtra("email1", username);
+                    startActivity(i);
+                }
+                else{
+                    startActivity(i);
+                }
             }
         });
         secondCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(MainActivity.this,optionstrategy.class);
-                i.putExtra("email2",registerEmail);
-                startActivity(i);
+                if(!username.isEmpty()) {
+                    i.putExtra("email1", username);
+                    startActivity(i);
+                }
+                else{
+                    startActivity(i);
+                }
             }
         });
         comboCourse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i= new Intent(MainActivity.this,combo.class);
-                i.putExtra("email3",registerEmail);
-                startActivity(i);
+                if(!username.isEmpty()) {
+                    i.putExtra("email1", username);
+                    startActivity(i);
+                }
+                else{
+                    startActivity(i);
+                }
             }
         });
         //Contact_Floating_Button
@@ -177,6 +200,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.clear();
+                editor.apply();
+                Intent i = new Intent(MainActivity.this, login.class);
+                startActivity(i);
+                finish();
+                menu.setVisibility(View.GONE);
+            }
+        });
+
         courseA.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -200,7 +237,7 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    online(registerEmail);
+                    online(username);
 
                     }
 
@@ -213,11 +250,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-                    option(registerEmail);
+                    option(username);
 
 
                 }
             });
+
         }
 
         void online(String emails){

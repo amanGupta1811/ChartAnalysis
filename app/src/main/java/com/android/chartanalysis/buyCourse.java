@@ -35,8 +35,7 @@ public class buyCourse extends AppCompatActivity {
     Button payBtn;
     String url = "https://sdcsupermarket.com/purchage_details.php";
     ProgressBar progressBar;
-   // String email;
-//    menu menu;
+
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,14 +64,14 @@ public class buyCourse extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                buyDeatailsToDB(course,amt,email,date);
+                buyDetailsToDB(course,amt,email,date);
 
 
             }
         });
     }
 
-    void buyDeatailsToDB(final String course,final String amt,final String email,final String date){
+    void buyDetailsToDB(final String course,final String amt,final String email,final String date){
 
         progressBar.setVisibility(View.VISIBLE);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -106,8 +105,6 @@ public class buyCourse extends AppCompatActivity {
                 map.put("amount", amt);
                 map.put("email", email);
                 map.put("orderDate",date);
-
-
                 return map;
             }
         };

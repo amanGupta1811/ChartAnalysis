@@ -1,12 +1,15 @@
 package com.android.chartanalysis;
 
 import static com.android.chartanalysis.regex.isValidPassword;
+import static com.android.chartanalysis.url.callFloting;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -34,7 +37,7 @@ public class login extends AppCompatActivity {
 
     TextView registerTxt;
     ImageView menuBack;
-    Button skipBtn,login;
+    Button skipBtn,login,helpline;
     EditText emailTxt, passTxt;
     ProgressBar progressBar;
     String emailStr;
@@ -53,6 +56,7 @@ public class login extends AppCompatActivity {
         passTxt = findViewById(R.id.passWordSignIn);
         registerTxt = findViewById(R.id.registerbtn);
         progressBar = findViewById(R.id.progressBar);
+        helpline = findViewById(R.id.helpline);
 
         skipBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,6 +65,7 @@ public class login extends AppCompatActivity {
                 startActivity(intent);
                 finish();}});
 
+        helpline.setOnClickListener((v)->callFloting(login.this));
         login.setOnClickListener((v)->loginToAcc());
         registerTxt.setOnClickListener((v)->startActivity(new Intent(login.this,signUp.class)));
 
@@ -77,6 +82,7 @@ public class login extends AppCompatActivity {
         }
 
         loginUserToDatabase(emailStr, passStr);
+
     }
 
     boolean validateData(String emailStr, String passStr){
@@ -133,5 +139,10 @@ public class login extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(request);
+        SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("Username", email);
+        editor.putString("Password", password);
+        editor.apply();
     }
 }
