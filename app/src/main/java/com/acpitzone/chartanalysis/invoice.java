@@ -1,4 +1,4 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
@@ -22,6 +22,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.chartanalysis.R;
 
 import org.w3c.dom.Text;
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/back"
-    tools:context=".MainActivity">
+    tools:context="com.acpitzone.chartanalysis.MainActivity">
 
    <androidx.constraintlayout.widget.ConstraintLayout
        android:id="@+id/header"
@@ -14,14 +14,11 @@
        app:layout_constraintTop_toTopOf="parent"
        android:layout_height="75dp">
 
-
-
-
        <TextView
            android:id="@+id/icon"
-           android:layout_width="120dp"
-           android:layout_height="80dp"
-           android:text="Home"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Chart Analysis"
            android:textStyle="bold"
            android:textSize="30dp"
            android:textColor="@color/white"
@@ -40,6 +37,15 @@
            android:layout_margin="20dp"
            android:background="#F6BE00"/>
 
+       <ImageButton
+           android:id="@+id/notification"
+           android:layout_width="20dp"
+           android:layout_height="20dp"
+           android:src="@drawable/baseline_notifications_24"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_margin="20dp"
+           android:background="#F6BE00"/>
    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
@@ -111,6 +117,8 @@
                     app:layout_constraintLeft_toRightOf="@id/yt1"
                     app:layout_constraintTop_toTopOf="parent"
                      />
+
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
@@ -124,7 +132,7 @@
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="15dp"
                 android:layout_marginBottom="15dp"
-                android:background="@color/purple_700"
+                android:background="#F6BE00"
                 android:textSize="20dp"
                 android:textColor="@color/white"
                 android:textAlignment="center"
@@ -159,10 +167,12 @@
             <HorizontalScrollView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/scrollCon"
                 app:layout_constraintTop_toBottomOf="@+id/textCources"
                >
 
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/courseCon"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -170,12 +180,12 @@
                         android:id="@+id/firstCourse"
                         android:layout_width="350dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="30dp"
-                        app:cardCornerRadius="10dp"
-                        app:cardElevation="6dp"
+                        app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toLeftOf="parent"
                         app:layout_constraintRight_toLeftOf="@id/secondCourse"
-                        app:layout_constraintTop_toTopOf="parent">
+                        android:layout_margin="30dp"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="6dp">
 
                         <ImageView
                             android:id="@+id/courseImg"
@@ -203,8 +213,6 @@
                             android:text="Technical analysis is a tool, or method, used to predict......."
                             android:textSize="20dp"
                             android:textStyle="normal" />
-
-
 
 
                     </androidx.cardview.widget.CardView>
@@ -296,6 +304,147 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </HorizontalScrollView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                app:layout_constraintTop_toBottomOf="@id/scrollCon"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:background="@drawable/back"
+                android:layout_marginTop="0dp">
+
+                <ImageButton
+                    android:id="@+id/contactImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_contacts_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="50dp"/>
+
+                <ImageButton
+                    android:id="@+id/notiImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/baseline_notifications_none_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="50dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/aboutImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_info_24"
+                    app:layout_constraintTop_toBottomOf="@id/notiImgBtn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginRight="50dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/galleryImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_image_24"
+                    app:layout_constraintTop_toBottomOf="@id/contactImgBtn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="50dp"
+                    />
+
+                <ImageButton
+                    android:id="@+id/ytImgBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/outline_ondemand_video_24"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginTop="40dp"
+                    android:layout_marginLeft="0dp"
+                    />
+
+
+                <TextView
+                    android:id="@+id/contactT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/contactImgBtn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="50dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/notiT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notification"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/notiImgBtn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="50dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/galleryT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gallery"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/galleryImgBtn"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginLeft="50dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/aboutT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="About us"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/aboutImgBtn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="50dp"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/ytT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Youtube"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/ytImgBtn"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"/>
+
+<!--                <ImageButton-->
+<!--                    android:id="@+id/yImgBtn"-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:src="@drawable/outline_ondemand_video_24"-->
+<!--                    app:layout_constraintTop_toBottomOf="@id/ytImgBtn"-->
+<!--                    app:layout_constraintLeft_toRightOf="@id/galleryImgBtn"-->
+<!--                    app:layout_constraintRight_toLeftOf="@id/aboutImgBtn"-->
+<!--                    android:layout_marginTop="40dp"-->
+<!--                    android:layout_marginLeft="0dp"-->
+<!--                    />-->
+
+
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -550,7 +699,7 @@
                 android:id="@+id/youtubeA"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Invite Freind"
+                android:text="Gallery"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textSize="20dp"
@@ -594,9 +743,5 @@
         app:layout_constraintRight_toRightOf="parent"
         android:visibility="gone"/>
 
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 <!--</androidx.constraintlayout.widget.ConstraintLayout>-->

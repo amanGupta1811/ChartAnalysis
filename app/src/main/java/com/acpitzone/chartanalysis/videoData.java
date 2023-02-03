@@ -1,4 +1,4 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
 public class videoData {
 

@@ -1,6 +1,6 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
-import static com.android.chartanalysis.url.buyBtn;
+import static com.acpitzone.chartanalysis.url.buyBtn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.chartanalysis.R;
 
 public class combo extends AppCompatActivity {
     Button buy;

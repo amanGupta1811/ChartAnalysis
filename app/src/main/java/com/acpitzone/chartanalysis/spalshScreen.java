@@ -1,4 +1,4 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.widget.ProgressBar;
+
+import com.android.chartanalysis.R;
 
 public class spalshScreen extends AppCompatActivity {
     ProgressBar progressBar;

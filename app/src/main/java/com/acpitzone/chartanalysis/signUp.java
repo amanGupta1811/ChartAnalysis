@@ -1,6 +1,6 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
-import static com.android.chartanalysis.regex.isValidPassword;
+import static com.acpitzone.chartanalysis.regex.isValidPassword;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.chartanalysis.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,8 +27,6 @@ import com.android.volley.toolbox.Volley;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class signUp extends AppCompatActivity {
 

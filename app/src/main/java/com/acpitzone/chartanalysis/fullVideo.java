@@ -1,4 +1,4 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,8 @@ import android.view.WindowManager;
 import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.VideoView;
+
+import com.android.chartanalysis.R;
 
 public class fullVideo extends AppCompatActivity {
 

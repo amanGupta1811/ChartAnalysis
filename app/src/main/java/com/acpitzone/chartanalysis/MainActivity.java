@@ -1,17 +1,14 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import android.annotation.SuppressLint;
-import android.app.Dialog;
-import android.app.Notification;
 import android.content.Context;
 import android.content.DialogInterface;
 import androidx.appcompat.app.AlertDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
@@ -19,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.chartanalysis.R;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -37,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
     ImageView logBtn,yt1,yt2;
     ImageView menuBTn;
-    TextView seeAll, r_email, home, courseA, about, contactA, online, option,logout;
+    TextView seeAll, r_email, home, courseA, about, contactA, online, option,logout,galleryA;
     CardView firstCourse,secondCourse,comboCourse;
     FloatingActionButton call, email, telegram, youtube, contact;
     String course;
@@ -46,11 +45,13 @@ public class MainActivity extends AppCompatActivity {
     ImageButton back;
     String courseB, emailB, idB, rateB,dateB;
     ProgressBar progressBar;
+    ImageButton aboutB, contactB, ytB, galleryB, notiB, notification;
     String url5 = "https://sdcsupermarket.com/check_purchage_user.php";
     String url1 = "https://www.youtube.com/@chartanalysis123";
     String url2 = "https://www.youtube.com/watch?v=Ab67mKtfXok";
     String url3 = "https://www.youtube.com/watch?v=x7_deJR3f38";
     String url4 = "https://t.me/chartanalysis_umesh_sharma";
+    String url6 = "https://chartanalysis.co.in/gallery.php";
 
 
 
@@ -89,7 +90,28 @@ public class MainActivity extends AppCompatActivity {
         online = findViewById(R.id.onlineA);
         progressBar = findViewById(R.id.progressB);
         logout = findViewById(R.id.log_outA);
+        contactB = findViewById(R.id.contactImgBtn);
+        aboutB = findViewById(R.id.aboutImgBtn);
+        ytB = findViewById(R.id.ytImgBtn);
+        galleryB = findViewById(R.id.galleryImgBtn);
+        notiB = findViewById(R.id.notiImgBtn);
+        notification = findViewById(R.id.notification);
+        galleryA = findViewById(R.id.youtubeA);
 
+        contactB.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, contactUs.class)));
+        aboutB.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, aboutUs.class)));
+        ytB.setOnClickListener((v)->url.GotoYt(MainActivity.this,url1));
+        notiB.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, notification.class)));
+        notification.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, notification.class)));
+        galleryB.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, gallery.class)));
+        galleryA.setOnClickListener((v)->startActivity(new Intent(MainActivity.this, gallery.class)));
+
+        if(username.isEmpty()){
+            logout.setText("SignIn");
+        }
+        else{
+            logout.setText("Logout");
+        }
        //String registerEmail = getIntent().getStringExtra("email");
 
         r_email.setText(username);

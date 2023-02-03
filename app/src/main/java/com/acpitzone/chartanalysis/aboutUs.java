@@ -1,9 +1,9 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
-import static com.android.chartanalysis.url.GotoYt;
-import static com.android.chartanalysis.url.callFloting;
-import static com.android.chartanalysis.url.contactFloting;
-import static com.android.chartanalysis.url.emailFloting;
+import static com.acpitzone.chartanalysis.url.GotoYt;
+import static com.acpitzone.chartanalysis.url.callFloting;
+import static com.acpitzone.chartanalysis.url.contactFloting;
+import static com.acpitzone.chartanalysis.url.emailFloting;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,6 +14,7 @@ import android.widget.ImageButton;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
+import com.android.chartanalysis.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class aboutUs extends AppCompatActivity {

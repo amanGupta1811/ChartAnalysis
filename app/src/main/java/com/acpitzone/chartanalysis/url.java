@@ -1,10 +1,8 @@
-package com.android.chartanalysis;
+package com.acpitzone.chartanalysis;
 
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.util.Patterns;
-import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
