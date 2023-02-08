@@ -28,6 +28,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -81,6 +82,7 @@ public class courseVideo extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 fetchDetails();
+
 
             }
         });
@@ -205,7 +207,7 @@ public class courseVideo extends AppCompatActivity {
                                 i.putExtra("date", date);
                                 i.putExtra("name", nameF);
                                 i.putExtra("mobile", contactF);
-                                invoiceT.setVisibility(View.GONE);
+                                invoice.setVisibility(View.GONE);
                                 startActivity(i);
                             }
                         }
