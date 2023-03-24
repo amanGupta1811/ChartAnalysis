@@ -211,7 +211,6 @@
                             android:textSize="20dp"
                             android:textStyle="normal" />
 
-
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
