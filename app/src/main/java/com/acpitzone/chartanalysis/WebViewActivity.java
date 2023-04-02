@@ -1,7 +1,12 @@
 package com.acpitzone.chartanalysis;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContract;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -38,6 +43,7 @@ public class WebViewActivity extends AppCompatActivity {
     Intent mainIntent;
     String encVal;
     String vResponse;
+    private ActivityResultLauncher<Intent> launcher;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +54,12 @@ public class WebViewActivity extends AppCompatActivity {
 
         get_RSA_key(mainIntent.getStringExtra(AvenuesParams.ACCESS_CODE), mainIntent.getStringExtra(AvenuesParams.ORDER_ID));
 
-
+//        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+//
+//            if(result.getResultCode() == Activity.RESULT_OK){
+//
+//            }
+//        });
     }
 
     private class RenderView extends AsyncTask<Void, Void, Void> {
@@ -95,10 +106,12 @@ public class WebViewActivity extends AppCompatActivity {
                         status = "Status Not Known!";
                     }
                     Toast.makeText(getApplicationContext(), status, Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), StatusActivity.class);
+                    Intent intent = new Intent();
                     intent.putExtra("transStatus", status);
-                    startActivity(intent);
+                    setResult(Activity.RESULT_OK,intent);
                 }
+
+
             }
 
             final WebView webview = (WebView) findViewById(R.id.webview);
@@ -191,9 +204,6 @@ public class WebViewActivity extends AppCompatActivity {
             msg = msg.replaceAll("\\\n", "");
 
         alertDialog.setMessage(msg);
-
-
-
         alertDialog.setButton(Dialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
 
             @Override

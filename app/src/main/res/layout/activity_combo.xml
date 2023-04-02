@@ -136,7 +136,7 @@
                     android:id="@+id/courseAmt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="₹ 16,999"
+                    android:text="16999"
                     android:textColor="@color/black"
                     android:layout_marginRight="2dp"
                     android:layout_marginLeft="100dp"

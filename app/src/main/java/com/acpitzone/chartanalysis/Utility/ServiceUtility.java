@@ -9,7 +9,6 @@ import java.util.Properties;
 import java.util.Random;
 import java.util.Set;
 import java.util.StringTokenizer;
-
 public class ServiceUtility {
     public java.util.Map readProperties(String pFilePath)throws IOException {
         java.util.Map vPropertyMap=new LinkedHashMap();

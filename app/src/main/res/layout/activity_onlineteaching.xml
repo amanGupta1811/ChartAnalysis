@@ -147,7 +147,7 @@
                     android:id="@+id/amt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="₹ 7,999"
+                    android:text="7999"
                     android:textColor="@color/black"
                     android:layout_marginRight="2dp"
                     android:layout_marginLeft="40dp"

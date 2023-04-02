@@ -94,7 +94,6 @@ public class signUp extends AppCompatActivity {
         }
         return true;
     }
-
     void registerUserToDatabase(final String name, final String email, final String mobile, final String password){
         progressBar.setVisibility(View.VISIBLE);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -102,9 +101,14 @@ public class signUp extends AppCompatActivity {
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(),response,Toast.LENGTH_LONG).show();
                 progressBar.setVisibility(View.GONE);
-                if(response.toString().equals("SignUp Succesfully")){
-                    Intent i = new Intent(signUp.this, login.class);
+                if(response.toString().equals("Otp send successefully")){
+                    Intent i = new Intent(signUp.this, otpverification.class);
+                    i.putExtra("name",name);
+                    i.putExtra("email",email);
+                    i.putExtra("mobile",mobile);
+                    i.putExtra("password",password);
                     startActivity(i);
+                    Toast.makeText(getApplicationContext(),"Check your email",Toast.LENGTH_LONG).show();
                     finish();
                 }
                 else{
@@ -126,10 +130,10 @@ public class signUp extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> map = new HashMap<String,String>();
-                map.put("name",name);
+//                map.put("name",name);
                 map.put("email",email);
-                map.put("contact",mobile);
-                map.put("password",password);
+//                map.put("contact",mobile);
+//                map.put("password",password);
                 return map;
             }
         };

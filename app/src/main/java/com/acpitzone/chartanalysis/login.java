@@ -107,6 +107,11 @@ public class login extends AppCompatActivity {
                     Intent i = new Intent(login.this, MainActivity.class);
                     i.putExtra("email", emailStr);
                     startActivity(i);
+                    SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("Username", email);
+                    editor.putString("Password", password);
+                    editor.apply();
                     finish();
                 }
 
@@ -136,10 +141,6 @@ public class login extends AppCompatActivity {
 
         RequestQueue queue = Volley.newRequestQueue(getApplicationContext());
         queue.add(request);
-        SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("Username", email);
-        editor.putString("Password", password);
-        editor.apply();
+
     }
 }

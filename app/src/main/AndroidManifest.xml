@@ -18,6 +18,9 @@
         android:theme="@style/Theme.Chartanalysis"
         tools:targetApi="31">
         <activity
+            android:name="com.acpitzone.chartanalysis.otpverification"
+            android:exported="false" />
+        <activity
             android:name="com.acpitzone.chartanalysis.StatusActivity"
             android:exported="false" />
         <activity

@@ -29,6 +29,11 @@ public class StatusActivity extends AppCompatActivity {
 
         Log.d("inMain",payment_status);
 
+
+        if(payment_status.equals("Transaction Successful!")){
+
+        }
+
         TextView tv4 = (TextView) findViewById(R.id.textView);
         tv4.setText(mainIntent.getStringExtra("transStatus"));
     }
