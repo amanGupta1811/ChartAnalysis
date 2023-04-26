@@ -12,4 +12,8 @@ public class AvenuesParams {
     public static final String REDIRECT_URL = "redirect_url";
     public static final String CANCEL_URL = "cancel_url";
     public static final String RSA_KEY_URL = "rsa_key_url";
+    public static final String Billing_Name = "billing_name";
+    public static final String Billing_email = "billing_email";
+    public static final String Billing_mobile = "billing_tel";
+
 }

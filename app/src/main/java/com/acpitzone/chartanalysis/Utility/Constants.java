@@ -3,7 +3,7 @@ package com.acpitzone.chartanalysis.Utility;
 public class Constants {
     public static final String PARAMETER_SEP = "&";
     public static final String PARAMETER_EQUALS = "=";
-    public static final String TRANS_URL = "https://secure.ccavenue.com/transaction/initTrans";
+    public static final String TRANS_URL = "https://secure.ccavenue.com/transaction/initTrans";   //https://secure.ccavenue.com/transaction/initTrans
     public static final String access_code = "AVWO79JD34CC36OWCC"; // add your access_code 4YRUXLSRO20O8NIH
     public static final String merchantId= "844170"; // add your merchant_id
     public static final String currency="INR";

@@ -92,10 +92,10 @@ public class invoice extends AppCompatActivity {
 
         back.setOnClickListener((v)->finish());
 
-        if(amtF.equals("\u20b9 7,999")){
+        if(amtF.equals("7999")){
             amtI = 7999;
         }
-        else if(amtF.equals("\u20b910,999")){
+        else if(amtF.equals("10999")){
             amtI = 10999;
         }
 

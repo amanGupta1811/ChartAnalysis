@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
+    android:background="@drawable/chartb"
     tools:context="com.acpitzone.chartanalysis.signUp">
 
     <ScrollView
@@ -36,7 +36,7 @@
             <EditText
                 android:id="@+id/name"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginTop="-80dp"
@@ -58,7 +58,7 @@
             <EditText
                 android:id="@+id/emalIdSignIn"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="70dp"
                 android:layout_marginTop="-80dp"
@@ -80,7 +80,7 @@
             <EditText
                 android:id="@+id/passWordSignIn"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="70dp"
                 android:hint="Phone No."
@@ -99,7 +99,7 @@
             <EditText
                 android:id="@+id/mobile"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="70dp"
                 android:layout_marginRight="70dp"
                 android:hint="Password"
@@ -151,8 +151,8 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSignIn"
-                android:layout_width="150dp"
-                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
                 android:layout_marginTop="92dp"
                 android:layout_marginRight="140dp"

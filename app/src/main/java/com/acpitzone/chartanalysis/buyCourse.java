@@ -34,15 +34,16 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 public class buyCourse extends AppCompatActivity {
-   public TextView courseName, courseAmt, teche;
+    public TextView courseName, courseAmt, teche;
     ImageButton backBtn;
     Button payBtn;
     String url = "https://sdcsupermarket.com/purchage_details.php";
     String url1 = "https://sdcsupermarket.com/check_course.php";
     ProgressBar progressBar;
-    String order_ID;
+    String order_ID, nameL, contactL, email;
     ActivityResultLauncher<Intent> launcher;
-//    String status = "ok";
+
+    //    String status = "ok";
 //    boolean status = true;
     @SuppressLint({"WrongViewCast", "MissingInflatedId"})
     @Override
@@ -59,7 +60,7 @@ public class buyCourse extends AppCompatActivity {
         Intent intent = getIntent();
         String course = intent.getStringExtra("courseName");
         String amt = intent.getStringExtra("courseAmt");
-        String email = intent.getStringExtra("emailStr");
+        email = intent.getStringExtra("emailStr");
         String emai = intent.getStringExtra("email10");
         courseName.setText(course);
         courseAmt.setText(amt);
@@ -67,6 +68,8 @@ public class buyCourse extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("LoginDetails", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("Username", "");
         String password = sharedPreferences.getString("Password", "");
+        nameL = sharedPreferences.getString("nameL", "");
+        contactL = sharedPreferences.getString("contactL", "");
 
         String date = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 
@@ -76,43 +79,42 @@ public class buyCourse extends AppCompatActivity {
             public void onClick(View view) {
                 //buyDetailsToDB(course,amt,email,date);
 
-                if(!username.isEmpty()){
+                if (!username.isEmpty()) {
                     checkCourseDetails(email, course, amt);
-                }
-                else{
+                } else {
                     Toast.makeText(buyCourse.this, "Login Yourself First", Toast.LENGTH_SHORT).show();
                 }
 
-               // if(status) {
+                // if(status) {
 
-               // }
+                // }
             }
         });
 
-         launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
+        launcher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
 
             if (result.getResultCode() == Activity.RESULT_OK) {
                 Intent data = result.getData();
                 String status = data.getStringExtra("transStatus");
 
-                if(status.equals("Transaction Successful!")){
-                    buyDetailsToDB(course,amt,email,date);
+                if (status.equals("Transaction Successful!")) {
+                    buyDetailsToDB(course, amt, email, date);
                     Toast.makeText(this, status, Toast.LENGTH_SHORT).show();
-                }
-                else{
+                } else {
                     Toast.makeText(this, status, Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    void checkCourseDetails(String email, String course, String amount){
+
+    void checkCourseDetails(String email, String course, String amount) {
         progressBar.setVisibility(View.VISIBLE);
         StringRequest request = new StringRequest(Request.Method.POST, url1, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 progressBar.setVisibility(View.GONE);
-                Toast.makeText(buyCourse.this,response, Toast.LENGTH_SHORT).show();
-                if(!response.equals("You already buy this course")){
+                Toast.makeText(buyCourse.this, response, Toast.LENGTH_SHORT).show();
+                if (!response.equals("You already buy this course")) {
                     pay(String.valueOf(amount));
                 }
             }
@@ -136,7 +138,7 @@ public class buyCourse extends AppCompatActivity {
         queue.add(request);
     }
 
-    void buyDetailsToDB(final String course,final String amt,final String email,final String date){
+    void buyDetailsToDB(final String course, final String amt, final String email, final String date) {
 
         progressBar.setVisibility(View.VISIBLE);
         StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
@@ -158,8 +160,8 @@ public class buyCourse extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-             Toast.makeText(buyCourse.this, "Please login to your account or Check your connection",Toast.LENGTH_LONG).show();
-             progressBar.setVisibility(View.GONE);
+                Toast.makeText(buyCourse.this, "Please login to your account or Check your connection", Toast.LENGTH_LONG).show();
+                progressBar.setVisibility(View.GONE);
 //                status = false;
                 finish();
             }
@@ -171,7 +173,7 @@ public class buyCourse extends AppCompatActivity {
                 map.put("course", course);
                 map.put("amount", amt);
                 map.put("email", email);
-                map.put("orderDate",date);
+                map.put("orderDate", date);
                 return map;
             }
         };
@@ -180,38 +182,42 @@ public class buyCourse extends AppCompatActivity {
         queue.add(request);
     }
 
-    public void pay(String amount){
+    public void pay(String amount) {
         String vAccessCode = ServiceUtility.chkNull(Constants.access_code).toString().trim();
-        Log.d("Access_code",vAccessCode);
+        Log.d("Access_code", vAccessCode);
         String vMerchantId = ServiceUtility.chkNull(Constants.merchantId).toString().trim();
         String vCurrency = ServiceUtility.chkNull(Constants.currency).toString().trim();
         String vAmount = ServiceUtility.chkNull(amount).toString().trim();
 
-        if(!vAccessCode.equals("") && !vMerchantId.equals("") && !vCurrency.equals("") && !vAmount.equals("")){
-            Intent intent = new Intent(buyCourse.this,WebViewActivity.class);
+        if (!vAccessCode.equals("") && !vMerchantId.equals("") && !vCurrency.equals("") && !vAmount.equals("")) {
+            Intent intent = new Intent(buyCourse.this, WebViewActivity.class);
             intent.putExtra(AvenuesParams.ACCESS_CODE, ServiceUtility.chkNull(Constants.access_code).toString().trim());
             intent.putExtra(AvenuesParams.MERCHANT_ID, ServiceUtility.chkNull(Constants.merchantId).toString().trim());
             intent.putExtra(AvenuesParams.ORDER_ID, ServiceUtility.chkNull(order_ID).toString().trim());
             intent.putExtra(AvenuesParams.CURRENCY, ServiceUtility.chkNull(Constants.currency).toString().trim());
             intent.putExtra(AvenuesParams.AMOUNT, ServiceUtility.chkNull(amount).toString().trim());
-
+            intent.putExtra(AvenuesParams.Billing_Name, nameL);
+            intent.putExtra(AvenuesParams.Billing_email, email);
+            intent.putExtra(AvenuesParams.Billing_mobile, contactL);
             intent.putExtra(AvenuesParams.REDIRECT_URL, ServiceUtility.chkNull(Constants.redirectUrl).toString().trim());
             intent.putExtra(AvenuesParams.CANCEL_URL, ServiceUtility.chkNull(Constants.cancelUrl).toString().trim());
             intent.putExtra(AvenuesParams.RSA_KEY_URL, ServiceUtility.chkNull(Constants.rsaKeyUrl).toString().trim());
 
             launcher.launch(intent);
 
-        }else{
+        } else {
             showToast("All parameters are mandatory.");
         }
     }
+
     @Override
     protected void onStart() {
         super.onStart();
         //generating new order number for every transaction
         Integer randomNum = ServiceUtility.randInt(0, 9999999);
-        order_ID=randomNum.toString();
+        order_ID = randomNum.toString();
     }
+
     public void showToast(String msg) {
         Toast.makeText(this, "Toast: " + msg, Toast.LENGTH_LONG).show();
     }

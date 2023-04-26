@@ -136,7 +136,7 @@ public class WebViewActivity extends AppCompatActivity {
 
 
             try {
-                String postData = AvenuesParams.ACCESS_CODE + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.ACCESS_CODE), "UTF-8") + "&" + AvenuesParams.MERCHANT_ID + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.MERCHANT_ID), "UTF-8") + "&" + AvenuesParams.ORDER_ID + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.ORDER_ID), "UTF-8") + "&" + AvenuesParams.REDIRECT_URL + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.REDIRECT_URL), "UTF-8") + "&" + AvenuesParams.CANCEL_URL + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.CANCEL_URL), "UTF-8") + "&" + AvenuesParams.ENC_VAL + "=" + URLEncoder.encode(encVal, "UTF-8");
+                String postData = AvenuesParams.ACCESS_CODE + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.ACCESS_CODE), "UTF-8") + "&" + AvenuesParams.MERCHANT_ID + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.MERCHANT_ID), "UTF-8") + "&" + AvenuesParams.ORDER_ID + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.ORDER_ID), "UTF-8") + "&" + AvenuesParams.REDIRECT_URL + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.REDIRECT_URL), "UTF-8") + "&" + AvenuesParams.CANCEL_URL + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.CANCEL_URL), "UTF-8") + "&" + AvenuesParams.ENC_VAL + "=" + URLEncoder.encode(encVal, "UTF-8") + "&" + AvenuesParams.Billing_Name + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.Billing_Name), "UTF-8") + "&" + AvenuesParams.Billing_email + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.Billing_email), "UTF-8") + "&" + AvenuesParams.Billing_mobile + "=" + URLEncoder.encode(mainIntent.getStringExtra(AvenuesParams.Billing_mobile), "UTF-8");
                 webview.postUrl(Constants.TRANS_URL, postData.getBytes());
             } catch (UnsupportedEncodingException e) {
                 e.printStackTrace();
@@ -183,9 +183,10 @@ public class WebViewActivity extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put(AvenuesParams.ACCESS_CODE, ac);
                 params.put(AvenuesParams.ORDER_ID, od);
+//                params.put("billing_name", "Aman Gupta");
+//                params.put("billing_email", "amangupta181102@gmail.com");
                 return params;
             }
-
         };
         stringRequest.setRetryPolicy(new DefaultRetryPolicy(
                 30000,

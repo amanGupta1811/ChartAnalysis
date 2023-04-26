@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/back"
+    android:background="@drawable/chartb"
     tools:context="com.acpitzone.chartanalysis.login">
-
 
     <ScrollView
         android:layout_width="match_parent"
@@ -73,71 +72,70 @@
                 app:layout_constraintRight_toRightOf="parent"
                 />
 
-            <Switch
-                android:id="@+id/switch1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginRight="40dp"
-                android:layout_marginBottom="20dp"
-                android:layout_marginTop="20dp"
-                android:checked="false"
-                android:switchMinWidth="56dp"
-                android:textOff="OFF"
-                android:textOn="ON"
-                app:layout_constraintBottom_toTopOf="@id/buttonSignIn"
-                app:layout_constraintHorizontal_bias="0.785"
-                app:layout_constraintLeft_toRightOf="@id/remember"
-                app:layout_constraintRight_toLeftOf="@id/forget"
-                app:layout_constraintTop_toBottomOf="@id/passWordSignIn"
-                app:layout_constraintVertical_bias="0.244" />
+<!--            <Switch-->
+<!--                android:id="@+id/switch1"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="45dp"-->
+<!--                android:layout_marginRight="40dp"-->
+<!--                android:layout_marginBottom="20dp"-->
+<!--                android:layout_marginTop="20dp"-->
+<!--                android:checked="false"-->
+<!--                android:switchMinWidth="56dp"-->
+<!--                android:textOff="OFF"-->
+<!--                android:textOn="ON"-->
+<!--                app:layout_constraintBottom_toTopOf="@id/buttonSignIn"-->
+<!--                app:layout_constraintHorizontal_bias="0.785"-->
+<!--                app:layout_constraintLeft_toRightOf="@id/remember"-->
+<!--                app:layout_constraintRight_toLeftOf="@id/forget"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/passWordSignIn"-->
+<!--                app:layout_constraintVertical_bias="0.244" />-->
 
-            <TextView
-                android:id="@+id/forget"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="0dp"
-                android:layout_marginTop="16dp"
-                android:text="Forgot Password"
-                android:textColor="#ff781f"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.879"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/passWordSignIn"
-                app:layout_constraintVertical_bias="0.045"
-                tools:ignore="MissingConstraints" />
+<!--            <TextView-->
+<!--                android:id="@+id/forget"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="0dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:text="Forgot Password"-->
+<!--                android:textColor="#ff781f"-->
+<!--                android:textSize="18dp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.879"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/passWordSignIn"-->
+<!--                app:layout_constraintVertical_bias="0.045"-->
+<!--                tools:ignore="MissingConstraints" />-->
 
-            <TextView
-                android:id="@+id/remember"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="28dp"
-                android:layout_marginTop="16dp"
-                android:text="Remember"
-                android:textColor="@color/black"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/passWordSignIn"
-                app:layout_constraintVertical_bias="0.043"
-                tools:ignore="MissingConstraints" />
+<!--            <TextView-->
+<!--                android:id="@+id/remember"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginLeft="28dp"-->
+<!--                android:layout_marginTop="16dp"-->
+<!--                android:text="Remember"-->
+<!--                android:textColor="@color/black"-->
+<!--                android:textSize="18dp"-->
+<!--                android:textStyle="bold"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.0"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/passWordSignIn"-->
+<!--                app:layout_constraintVertical_bias="0.043"-->
+<!--                tools:ignore="MissingConstraints" />-->
 
             <TextView
                 android:id="@+id/alreadyText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="38dp"
-                android:layout_marginTop="25dp"
+                android:layout_marginTop="10dp"
                 android:text="Don't have an account ?"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.011"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -148,13 +146,12 @@
                 android:id="@+id/registerbtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="26dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="10dp"
                 android:text="SignUp"
                 android:textColor="#ff781f"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintLeft_toRightOf="@id/alreadyText"
                 app:layout_constraintRight_toRightOf="parent"
@@ -164,10 +161,10 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/buttonSignIn"
-                android:layout_width="150dp"
-                android:layout_height="64dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="140dp"
-                android:layout_marginTop="92dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginRight="140dp"
                 android:backgroundTint="#F6BE00"
                 android:text="Login"

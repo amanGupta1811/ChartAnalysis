@@ -93,22 +93,7 @@ public class courseVideo extends AppCompatActivity {
         recyclerView.setLayoutManager(new GridLayoutManager(this, 2,LinearLayoutManager.VERTICAL, false));
         courseVidAdapter = new courseVidAdapter(arrayList, getApplicationContext());
         fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
-        fetchData();
         recyclerView.setAdapter(courseVidAdapter);
-
     }
 
     private void fetchData() {
